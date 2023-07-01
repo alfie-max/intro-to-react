@@ -4,9 +4,21 @@ const Results = ({ pets }) => {
   return (
     <div className="search">
       {!pets.length ? (
-        <h2>No Pets Found</h2>
+        <h1>No Pets Found</h1>
       ) : (
-        pets.map((pet) => <Pet key={pet.id} {...pet} />)
+        pets.map((pet) => {
+          return (
+            <Pet
+              animal={pet.animal}
+              key={pet.id}
+              name={pet.name}
+              breed={pet.breed}
+              images={pet.images}
+              location={`${pet.city}, ${pet.state}`}
+              id={pet.id}
+            />
+          );
+        })
       )}
     </div>
   );
